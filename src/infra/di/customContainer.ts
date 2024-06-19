@@ -1,11 +1,11 @@
 import 'reflect-metadata';
 import { Container, interfaces } from 'inversify';
-import { initializeRepositories } from './repositoryBindings';
-import { initializeServices } from './serviceBindings';
+// import { initializeRepositories } from './repositoryBindings';
+// import { initializeServices } from './serviceBindings';
 
 interface ICustomContainer {
     getContainer(): Container;
-    bind<T>(serviceIdentifier: interfaces.ServiceIdentifier<T>): interfaces.BindingToSyntax<T>;
+    bind<T>(sericeIdentifier: interfaces.ServiceIdentifier<T>): interfaces.BindingToSyntax<T>;
 }
 
 
@@ -14,13 +14,13 @@ class CustomContainer implements ICustomContainer {
 
     constructor() {
         this.container = new Container();
-        this.initializeContainer();
+        // this.initializeContainer();
     }
 
-    private initializeContainer() {
-        initializeRepositories(this.container);
-        initializeServices(this.container);
-    }
+    // private initializeContainer() {
+    //     // initializeRepositories(this.container);
+    //     // initializeServices(this.container);
+    // }
 
     public getContainer(): Container {
         return this.container;

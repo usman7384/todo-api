@@ -1,4 +1,4 @@
-let TYPES = {
+let CONSTANTS = {
     ITodoRepository: Symbol.for('ITodoRepository'),
     IUserRepository: Symbol.for('IUserRepository'),
     UserService: Symbol.for('UserService'),
@@ -6,4 +6,4 @@ let TYPES = {
     GoogleAuthService: Symbol.for('GoogleAuthService')
 };
 
-export default TYPES
+export default CONSTANTS

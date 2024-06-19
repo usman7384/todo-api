@@ -3,6 +3,8 @@ import { IUserRepository } from '../../domain/repositories/IUserRepository';
 import { UserModel } from '../models/User';
 import { User } from '../../domain/entities/User';
 import { Todo } from '../../domain/entities/Todo'
+import { UserDTO } from '../../app/dto/UserDTO';
+
 
 export class UserRepository implements IUserRepository {
     private repository: Repository<UserModel>;
@@ -26,21 +28,6 @@ export class UserRepository implements IUserRepository {
                 todo.completed
             ))
         ));
-    }
-
-    async createUser(user: User): Promise<User> {
-        const userModel = this.repository.create({
-            id: user.id,
-            googleId: user.googleId,
-            name: user.name,
-        });
-        const savedUser = await this.repository.save(userModel);
-        return new User(
-            savedUser.id,
-            savedUser.googleId,
-            savedUser.name,
-            savedUser.todos
-        );
     }
 
     async findOneUser(userId: string): Promise<User | null> {

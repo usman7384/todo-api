@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import { GoogleAuthService } from '../../app/services/authService';
-import { container } from '../../infra/DI_Container/inversify.config';
-import TYPES from "../../shared/types";
+import { container } from '../../infra/di/inversify.config';
+import CONSTANTS from "../../shared/constants";
 
 
-const googleAuthService = container.get<GoogleAuthService>(TYPES.GoogleAuthService);
+const googleAuthService = container.get<GoogleAuthService>(CONSTANTS.GoogleAuthService);
 
 export const getGoogleAuthURL = (req: Request, res: Response) => {
     try {

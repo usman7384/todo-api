@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import UserService  from '../../app/services/userService';
-import {container} from '../../infra/DI_Container/inversify.config'
-import TYPES from "../../shared/types";
+import {container} from '../../infra/di/inversify.config'
+import CONSTANTS from "../../shared/constants";
 
 
-const userService = container.get<UserService>(TYPES.UserService);
+const userService = container.get<UserService>(CONSTANTS.UserService);
 
 export const getUser = async (req: Request, res: Response) => {
     try {
